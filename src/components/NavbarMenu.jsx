@@ -30,7 +30,7 @@ export default function NavbarMenu({ isActive, setIsActive }) {
 
   return (
     <div
-      className={`fixed text-white z-[90] h-[calc(100vh-64px)] left-0 w-full bg-[#171717] p-8 
+      className={`fixed z-[90] h-[calc(100vh-64px)] left-0 w-full bg-gray-50 p-8 
       transition-all duration-500 ease-in-out flex flex-col justify-center gap-5 
       lg:flex-row lg:items-center ${isActive ? "top-16" : "-top-[110%] opacity-0"}`}
     >
@@ -38,21 +38,21 @@ export default function NavbarMenu({ isActive, setIsActive }) {
       <div onClick={() => setIsActive(false)}>
         {menuItems.map(({ id, label, path, action }) =>
           action ? (
-            <button key={id} onClick={action} className="flex gap-2 text-white">
-              <mark className="bg-transparent text-white font-semibold">{id}</mark>
-              <span className="font-[Grotesk] text-8xl lg:text-7xl leading-none">{label}</span>
+            <button key={id} onClick={action} className="flex gap-2">
+              <mark className="bg-transparent text-black font-semibold">{id}</mark>
+              <span className="font-[Grotesk] text-7xl lg:text-7xl leading-none">{label}</span>
             </button>
           ) : (
             <Link key={id} to={path} className="flex gap-2">
-              <mark className="bg-transparent text-white font-semibold">{id}</mark>
-              <span className="font-[Grotesk] text-8xl lg:text-7xl leading-none">{label}</span>
+              <mark className="bg-transparent text-black font-semibold">{id}</mark>
+              <span className="font-[Grotesk] text-7xl lg:text-7xl leading-none">{label}</span>
             </Link>
           )
         )}
       </div>
 
       {/* Social Links */}
-      <div className="flex flex-col">
+      <div className="flex flex-col text-sm">
         {socialLinks.map(({ name, url }) => (
           <a
             key={name}

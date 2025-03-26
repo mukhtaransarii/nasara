@@ -18,7 +18,9 @@
   font-family: "Boska-Light";
   src: url("../fonts/Boska-Light.woff") format("woff");
 }
-
+html{
+  zoom: 90%;
+}
 body{
   margin-top: 64px; /* Fixed Nav Reason */
   font-family: 'Poppins-Light';
