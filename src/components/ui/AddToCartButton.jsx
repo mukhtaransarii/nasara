@@ -4,7 +4,7 @@ export default function AddToCartButton({ product }) {
   const { cart, addToCart, removeFromCart } = useCart();
 
   // Check if any item in the cart matches the base product ID (ignoring unique suffix)
-  const matchingItems = cart.filter((item) => item.id.split("-")[0] === String(product.id));
+  const matchingItems = cart.filter((item) => item._id === product._id);
   const isInCart = matchingItems.length > 0;
 
   function handleClick(e) {
@@ -13,7 +13,7 @@ export default function AddToCartButton({ product }) {
     if (isInCart) {
       // Remove only the latest added item (optional: change logic to remove first if needed)
       const itemToRemove = matchingItems[matchingItems.length - 1];
-      removeFromCart(itemToRemove.id);
+      removeFromCart(itemToRemove._id);
     } else {
       addToCart(product);
     }

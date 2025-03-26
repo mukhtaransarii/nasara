@@ -3,32 +3,29 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState(() => {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  });
+  const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("cart")) || []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   const addToCart = (product) => {
+    const newItem = {
+      ...product,
+      NumberOfItem: 1,
+    };
+    setCart((prevCart) => [...prevCart, newItem]);
+  };
+
+  const updateCartQuantity = (_id, NumberOfItem) => {
     setCart((prevCart) =>
-      prevCart.some((item) => item.id === product.id)
-        ? prevCart.map((item) =>
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-          )
-        : [...prevCart, { ...product, id: `${product.id}-${Date.now()}`, quantity: 1 }]
+      prevCart.map((item) =>
+        item._id === _id ? { ...item, NumberOfItem: Math.max(NumberOfItem, 1) } : item
+      )
     );
   };
 
-
-  const updateCartQuantity = (id, quantity) => {
-    setCart((prevCart) =>
-      prevCart.map((item) => (item.id === id ? { ...item, quantity: Math.max(quantity, 1) } : item))
-    );
-  };
-
-  const removeFromCart = (id) => setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  const removeFromCart = (_id) => setCart((prevCart) => prevCart.filter((item) => item._id !== _id));
 
   const clearCart = () => {
     setCart([]);

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import BrandLogo from '../components/ui/BrandLogo.jsx'
 import axios from "axios";
 
-const API = import.meta.env.VITE_BACKEND_URI || "http://localhost:5000";
+const API = import.meta.env.VITE_BACKEND_URI;
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -29,6 +29,15 @@ export default function Login() {
     }
     setLoading(false);
   };
+  
+  useEffect(() => {
+    async function keepwarm() {
+     const res = await axios.get(`${API}/keep-warm`)
+     console.log(res.data)
+    }
+    keepwarm()
+  }, [])
+  
 
   return (
     <div className="h-[85vh] flex justify-center items-end lg:items-center">

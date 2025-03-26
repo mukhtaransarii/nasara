@@ -1,6 +1,8 @@
+const productApi = `${import.meta.env.VITE_ADMIN_PANEL_URI}/nasara`
+
 export async function fetchProducts() {
   try {
-    const response = await fetch(import.meta.env.VITE_PRODUCT_API); // Replace with actual API if needed
+    const response = await fetch(productApi); 
     const data = await response.json();
 
     return data
@@ -9,4 +11,5 @@ export async function fetchProducts() {
     return [];
   }
 }
+
 

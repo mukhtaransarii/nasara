@@ -44,7 +44,7 @@ export default function Home() {
 
         <div className=" mt-32 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
           {filteredProducts.map((product) => (
-            <Card key={product.id} product={product} onSelectProduct={handleProductClick} />
+            <Card key={product._id} product={product} onSelectProduct={handleProductClick} />
           ))}
         </div>
       </div>
