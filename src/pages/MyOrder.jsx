@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../API/AuthContext.jsx";
 import axios from "axios";
+import { useOrders } from "../API/OrderContext.jsx";
+
 
 export default function MyOrder() {
   const { user } = useAuth();
+  const { fetchOrders } = useOrders(); // ✅ Access OrderContext
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -14,6 +17,7 @@ export default function MyOrder() {
           `${import.meta.env.VITE_ADMIN_PANEL_URI}/nasara/get-orders/${user._id}`
         );
         setOrders(response.data);
+        fetchOrders();
       } catch (error) {
         console.error("Error fetching orders:", error);
       }

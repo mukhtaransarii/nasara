@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import BrandLogo from '../components/ui/BrandLogo.jsx'
 import axios from "axios";
+import { useAuth } from '../API/AuthContext.jsx'
 
 const API = import.meta.env.VITE_BACKEND_URI;
 
@@ -11,6 +12,7 @@ export default function Login() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); 
+  const { fetchUser } = useAuth();
 
   const handleSubmit = async () => {
     if (!(step === 1 ? email : otp)) return alert(`Enter ${step === 1 ? "email" : "OTP"}`);
@@ -22,6 +24,8 @@ export default function Login() {
       else {
         localStorage.setItem("token", data.token);
         alert("Login successful!");
+        fetchUser(); // ✅ Update state immediately
+        window.dispatchEvent(new Event("storage")); // ✅ Notify all components
         navigate('/')
       }
     } catch (err) {

@@ -11,7 +11,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState(products[0]);
   
-  console.log("selectedProduct : ", selectedProduct)
+
   useEffect(() => {
     if (products.length > 0 && !selectedProduct) {
       setSelectedProduct(products[0]);
