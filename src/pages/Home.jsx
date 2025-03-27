@@ -11,6 +11,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState(products[0]);
   
+  console.log("selectedProduct : ", selectedProduct)
   useEffect(() => {
     if (products.length > 0 && !selectedProduct) {
       setSelectedProduct(products[0]);
@@ -52,7 +53,7 @@ export default function Home() {
       {/* Right Side: Product View (30%) - Only on Large Screens */}
       <div className="hidden lg:block w-[40%] border-l p-4">
         {selectedProduct ? (
-          <ProductView product={selectedProduct} onSelectProduct={handleProductClick} />
+          <ProductView product={{...selectedProduct, image: selectedProduct.images[0]}} onSelectProduct={handleProductClick} />
         ) : (
           <p>Select a product to view</p>
         )}

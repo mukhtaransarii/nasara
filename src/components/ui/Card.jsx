@@ -20,7 +20,7 @@ export default function Card({ product, onSelectProduct }) {
       {/* Large Screens: Update ProductView without redirecting */}
       <div className="hidden lg:block" onClick={() => onSelectProduct(product)}>
         <div className="h-48 lg:h-28 overflow-hidden flex justify-center items-center">
-          <img src={product.image} className="h-full w-auto object-contain" />
+          <img src={product.images[0]} className="h-full w-auto object-contain" />
         </div>
         <h3 className="truncate w-full overflow-hidden whitespace-nowrap font-medium mt-2 lg:text-xs">
           {product.title}
