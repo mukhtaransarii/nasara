@@ -3,7 +3,7 @@ import BrandLogo from '../components/ui/BrandLogo.jsx'
 
 const Footer = () => {
   return (
-    <footer className="bg-[#fff] text-[#171717] w-full absolute bottom-0 pt-6">
+    <footer className="bg-[#fff] text-[#171717] w-full pt-6">
       <div className="w-full mx-auto px-4 pb-4">
         <div className="mb-6">
          <BrandLogo/>
