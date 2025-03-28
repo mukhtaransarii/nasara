@@ -38,7 +38,7 @@ export async function fetchProducts() {
       quantity: product.stock || 10, // Assuming a default quantity
       unit: "piece", // Default unit since DummyJSON lacks this field
       description: product.description,
-      author: "mukhtar",
+      author: "ii.bbs",
       images: product.images || [product.thumbnail], // Ensuring an array
       published: true,
     }));
