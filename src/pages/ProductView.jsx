@@ -32,13 +32,13 @@ export default function ProductView({ product: selectedProduct, onSelectProduct 
     <div className="p-4">
       {/* ✅ Product Image */}
       <div className="w-full h-80 flex justify-center items-center">
-        <img src={selectedImg} className="h-full w-auto object-contain"/>
+        <img src={selectedImg} loading="lazy" className="h-full w-auto object-contain"/>
       </div>
 
       {/* ✅ Thumbnails */}
       <div className="mb-4 bg-gray-100 h-24 w-full rounded flex gap-2 p-2 overflow-x-auto">
         {product.images?.map((img, i) => (
-          <img key={i} src={img}
+          <img key={i} src={img} loading="lazy" 
             className={`h-20 w-20 object-cover rounded cursor-pointer border ${
               selectedImg === img ? "border-black" : "border-transparent"
             }`}
