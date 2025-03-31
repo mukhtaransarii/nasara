@@ -35,7 +35,7 @@ export async function fetchProducts() {
       title: product.title,
       price: product.price,
       category: product.category || "Other",
-      quantity: product.stock || 10, // Assuming a default quantity
+      quantity: 1, // Assuming a default quantity
       unit: "piece", // Default unit since DummyJSON lacks this field
       description: product.description,
       author: "ii.bbs",
