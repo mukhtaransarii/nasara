@@ -12,38 +12,42 @@
 //   }
 // }
 
-
 const productApi = `${import.meta.env.VITE_ADMIN_PANEL_URI}/nasara`;
 
 export async function fetchProducts() {
   try {
-    // Fetching both APIs simultaneously
-    const [nasaraRes, dummyRes] = await Promise.all([
-      fetch(productApi),
-      fetch("https://dummyjson.com/products")
-    ]);
+    // Fetch Nasara API separately, allowing failure
+    let nasaraData = [];
+    try {
+      const nasaraRes = await fetch(productApi);
+      if (nasaraRes.ok) {
+        nasaraData = await nasaraRes.json();
+      } else {
+        console.warn("Nasara API failed:", nasaraRes.status);
+      }
+    } catch (err) {
+      console.warn("Nasara API unreachable:", err.message);
+    }
 
-    // Converting to JSON
-    const [nasaraData, dummyData] = await Promise.all([
-      nasaraRes.json(),
-      dummyRes.json()
-    ]);
+    // Fetch DummyJSON API separately
+    const dummyRes = await fetch("https://dummyjson.com/products");
+    const dummyData = await dummyRes.json();
 
-    // Mapping DummyJSON data to match your schema
+    // Mapping DummyJSON data
     const formattedDummyData = dummyData.products.map(product => ({
       _id: product.id.toString(),
       title: product.title,
       price: product.price,
       category: product.category || "Other",
-      quantity: 1, // Assuming a default quantity
-      unit: "piece", // Default unit since DummyJSON lacks this field
+      quantity: 1,
+      unit: "piece",
       description: product.description,
       author: "ii.bbs",
-      images: product.images || [product.thumbnail], // Ensuring an array
+      images: product.images || [product.thumbnail],
       published: true,
     }));
 
-    // Merging Nasara products with DummyJSON products
+    // Merging both product lists (Nasara + Dummy)
     return [...nasaraData, ...formattedDummyData];
 
   } catch (error) {
@@ -51,3 +55,4 @@ export async function fetchProducts() {
     return [];
   }
 }
+

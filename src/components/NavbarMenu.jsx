@@ -9,17 +9,19 @@ export default function NavbarMenu({ isActive, setIsActive }) {
     localStorage.removeItem("token"); // Remove token
     setUser(null); // Clear user state
   };
-  
+ 
   const menuItems = [
-      { id: "01", label: "HOME", path: "/" },
-      ...(user
-        ? [
-            { id: "02", label: "PROFILE", path: "/profile" },
-            { id: "03", label: "MY ORDER", path: "/my-order" },
-            { id: "04", label: "LOGOUT", action: handleLogout },
-          ]
-        : [{ id: "04", label: "LOGIN", path: "/login" }]),
-    ];
+    { label: "HOME", path: "/" },
+    ...(user
+      ? [
+          { label: "PROFILE", path: "/profile" },
+          { label: "MY ORDER", path: "/my-order" },
+          { label: "LOGOUT", action: handleLogout },
+        ]
+      : [{ label: "LOGIN", path: "/login" }]),
+  ];
+
+  
 
   const socialLinks = [
     { name: "Instagram", url: "https://instagram.com/ii.bbs" },
@@ -36,20 +38,21 @@ export default function NavbarMenu({ isActive, setIsActive }) {
     >
       {/* Navigation Links */}
       <div onClick={() => setIsActive(false)}>
-        {menuItems.map(({ id, label, path, action }) =>
+        {menuItems.map(({ label, path, action }, index) =>
           action ? (
-            <button key={id} onClick={action} className="flex gap-2">
-              <mark className="bg-transparent text-black font-semibold">{id}</mark>
+            <button key={index} onClick={action} className="flex gap-2">
+              <mark className="bg-transparent text-black font-semibold">{String(index + 1).padStart(2, "0")}</mark>
               <span className="font-[Grotesk] text-7xl lg:text-7xl leading-none">{label}</span>
             </button>
           ) : (
-            <Link key={id} to={path} className="flex gap-2">
-              <mark className="bg-transparent text-black font-semibold">{id}</mark>
+            <Link key={index} to={path} className="flex gap-2">
+              <mark className="bg-transparent text-black font-semibold">{String(index + 1).padStart(2, "0")}</mark>
               <span className="font-[Grotesk] text-7xl lg:text-7xl leading-none">{label}</span>
             </Link>
           )
         )}
       </div>
+
 
       {/* Social Links */}
       <div className="flex flex-col text-sm">
