@@ -6,6 +6,7 @@ import ProductView from "./ProductView.jsx";
 import SearchProduct from '../components/ui/SearchProduct.jsx'
 import { useLocation } from "react-router-dom";
 import AdComponent from '../components/AdComponent.jsx'
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   const { products } = useProducts();
@@ -34,6 +35,18 @@ export default function Home() {
 
    
   return (
+   <>
+    <Helmet>
+      <title>Nasara - Create Your Online Store</title>
+      <meta name="description" content="Nasara helps local store owners create and manage their online shops easily." />
+      <meta name="keywords" content="Nasara, ecommerce, kirana, online shop, general store, vercel" />
+      <meta property="og:title" content="Nasara - Your Online Store" />
+      <meta property="og:description" content="Grow your local shop online with Nasara." />
+      <meta property="og:url" content="https://nasaraa.vercel.app" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://nasaraa.vercel.app" />
+    </Helmet>
+
     <div className="flex">
       {/* Left Side: Product List (70%) */}
       <div className="w-full lg:w-[60%]">
@@ -65,5 +78,6 @@ export default function Home() {
       
       
     </div>
+  </>
   );
 }
