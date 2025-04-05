@@ -5,6 +5,7 @@ import { useProducts } from "../API/ProductContext.jsx";
 import ProductView from "./ProductView.jsx";
 import SearchProduct from '../components/ui/SearchProduct.jsx'
 import { useLocation } from "react-router-dom";
+import AdComponent from '../components/AdComponent.jsx'
 
 export default function Home() {
   const { products } = useProducts();
@@ -42,7 +43,10 @@ export default function Home() {
             <CategoryFilter categories={categories} activeCategory={activeCategory} onFilter={handleFilter} />
           </div>
         </div>
-
+        
+        {/* AdComponent from googleAds */}
+        <AdComponent />
+        
         <div className=" mt-32 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
           {filteredProducts.map((product) => (
             <Card key={product._id} product={product} onSelectProduct={handleProductClick} />
