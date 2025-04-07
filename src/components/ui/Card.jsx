@@ -1,17 +1,31 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import AddToCartButton from "./AddToCartButton.jsx"; 
 
 export default function Card({ product, onSelectProduct }) {
-  
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  const Image = (
+    <div className="h-48 lg:h-28 overflow-hidden flex justify-center items-center">
+      <img
+        src={product.images[0]}
+        loading="lazy"
+        onLoad={() => setImgLoaded(true)}
+        className={`h-full w-auto object-contain transition duration-500 ${
+          imgLoaded ? "blur-0 opacity-100" : "blur-sm opacity-40"
+        }`}
+        alt={product.title}
+      />
+    </div>
+  );
+
   return (
     <div className="p-2 shadow-sm bg-white cursor-pointer">
       {/* Mobile: Redirect to ProductView */}
       <Link to={`/product/${product._id}`} className="block lg:hidden">
         <div>
-          <div className="h-48 lg:h-28 overflow-hidden flex justify-center items-center">
-            <img src={product.images[0]} loading="lazy"  className="h-full w-auto object-contain" />
-          </div>
-          <h3 className="truncate w-full overflow-hidden whitespace-nowrap font-medium mt-2 lg:text-xs">
+          {Image}
+          <h3 className="truncate font-medium mt-2 lg:text-xs">
             {product.title}
           </h3>
         </div>
@@ -19,10 +33,8 @@ export default function Card({ product, onSelectProduct }) {
 
       {/* Large Screens: Update ProductView without redirecting */}
       <div className="hidden lg:block" onClick={() => onSelectProduct(product)}>
-        <div className="h-48 lg:h-28 overflow-hidden flex justify-center items-center">
-          <img src={product.images[0]} loading="lazy"  className="h-full w-auto object-contain" />
-        </div>
-        <h3 className="truncate w-full overflow-hidden whitespace-nowrap font-medium mt-2 lg:text-xs">
+        {Image}
+        <h3 className="truncate font-medium mt-2 lg:text-xs">
           {product.title}
         </h3>
       </div>
