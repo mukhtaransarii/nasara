@@ -55,7 +55,7 @@ export default function Home() {
           <div className="overflow-x-auto whitespace-nowrap">
             {products.length === 0 ? (
               <div className="flex gap-2 my-2">
-                <button className="px-2 py-1 whitespace-nowrap rounded-md border lg:text-xs bg-black">All</button> 
+                <button className="px-2 py-1 whitespace-nowrap rounded-md border lg:text-xs bg-black text-white">All</button> 
                 {[...Array(5)].map((_, i) => (
                   <div key={i} className="h-8 w-20 bg-gray-200 rounded-md animate-pulse"></div>
                 ))}
