@@ -46,14 +46,23 @@ export default function Home() {
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://nasaraa.vercel.app" />
     </Helmet>
-
+  
     <div className="flex">
       {/* Left Side: Product List (70%) */}
       <div className="w-full lg:w-[60%]">
         <div className="fixed z-[10] top-16 left-0 w-full bg-white px-4 lg:w-[60%]">
           <SearchProduct />
           <div className="overflow-x-auto whitespace-nowrap">
-            <CategoryFilter categories={categories} activeCategory={activeCategory} onFilter={handleFilter} />
+            {products.length === 0 ? (
+              <div className="flex gap-2 my-2">
+                <button className="px-2 py-1 whitespace-nowrap rounded-md border lg:text-xs bg-black">All</button> 
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="h-8 w-20 bg-gray-200 rounded-md animate-pulse"></div>
+                ))}
+              </div>
+            ) : (
+              <CategoryFilter categories={categories} activeCategory={activeCategory} onFilter={handleFilter} />
+            )}
           </div>
         </div>
         
@@ -61,9 +70,23 @@ export default function Home() {
         <AdComponent />
         
         <div className=" mt-32 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
-          {filteredProducts.map((product) => (
-            <Card key={product._id} product={product} onSelectProduct={handleProductClick} />
-          ))}
+          {products.length === 0
+          ? [...Array(8)].map((_, i) => (
+              <div key={i} className="p-2 space-y-2 animate-pulse">
+                <div className="h-48 bg-gray-200 rounded-md"></div>
+                <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                <div className="h-2 bg-gray-200 rounded w-1/3"></div>
+                <div className="flex justify-between items-center">
+                  <div className="h-5 bg-gray-200 rounded w-1/4"></div>
+                  <div className="h-8 bg-gray-200 rounded-md w-[40%]"></div>
+                </div>
+                <div className="h-2 bg-gray-200 rounded w-1/3"></div>
+              </div>
+            ))
+          : filteredProducts.map((product) => (
+              <Card key={product._id} product={product} onSelectProduct={handleProductClick} />
+            ))}
+
         </div>
       </div>
 
@@ -75,9 +98,7 @@ export default function Home() {
           <p>Select a product to view</p>
         )}
       </div>
-      
-      
     </div>
-  </>
+   </>
   );
 }
