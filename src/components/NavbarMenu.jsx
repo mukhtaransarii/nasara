@@ -28,6 +28,7 @@ export default function NavbarMenu({ isActive, setIsActive }) {
     { name: "Github", url: "https://github.com/mukhtaransarii" },
     { name: "LinkedIn", url: "https://linkedin.com/in/iibbs" },
     { name: "mukhtar.alam458546@gmail.com", url: "mailto:mukhtar.alam458546@gmail.com" },
+    { name: "nasara's admin panel", url: "https://nasaraa-admin.vercel.app" },
   ];
 
   return (
