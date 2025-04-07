@@ -37,7 +37,7 @@ export async function fetchProducts() {
     const formattedDummyData = dummyData.products.map(product => ({
       _id: product.id.toString(),
       title: product.title,
-      price: product.price,
+      price: (product.price * 50).toFixed(2),
       category: product.category || "Other",
       quantity: 1,
       unit: "piece",
