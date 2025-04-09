@@ -45,7 +45,7 @@ export default function Home() {
       <meta property="og:url" content="https://nasaraa.vercel.app" />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://nasaraa.vercel.app" />
-      <link rel="icon" type="image/png" href="../../public/img/nasara.png" />
+      <link rel="icon" type="image/png" href="/img/nasara.png" />
     </Helmet>
   
     <div className="flex">
@@ -65,10 +65,11 @@ export default function Home() {
               <CategoryFilter categories={categories} activeCategory={activeCategory} onFilter={handleFilter} />
             )}
           </div>
+          
+         {/* AdComponent from googleAds */}
+         <AdComponent />
         </div>
         
-        {/* AdComponent from googleAds */}
-        <AdComponent />
         
         <div className=" mt-32 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
           {products.length === 0
