@@ -38,6 +38,7 @@ export async function fetchProducts() {
       _id: product.id.toString(),
       title: product.title,
       price: (product.price * 50).toFixed(2),
+      originalPrice: (product.price * 90).toFixed(2),
       category: product.category || "Other",
       quantity: 1,
       unit: "piece",

@@ -18,6 +18,10 @@ export default function Card({ product, onSelectProduct }) {
       />
     </div>
   );
+  
+  const discountPercent = product.originalPrice 
+    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
+    : 0;
 
   return (
     <div className="p-2 shadow-sm bg-white cursor-pointer">
@@ -42,9 +46,14 @@ export default function Card({ product, onSelectProduct }) {
       <p className="text-gray-500 text-xs">{product.quantity || 500} {product.unit || "gm"}</p>
 
       <div className="flex justify-between items-center mt-2">  
-        <p className="text-gray-700 font-semibold lg:text-sm">₹{product.price}</p>
+        <span className="text-xl font-bold text-green-600">₹{product.price}</span>
         <AddToCartButton product={product} />
       </div>
+      <div className="text-sm space-x-1">
+        <span className="line-through text-gray-500">₹{product.originalPrice}</span>
+        <span className="text-sm text-red-600 font-medium">({discountPercent}% OFF)</span>
+      </div>
+        
 
       <p className="text-gray-600 text-xs mt-1 lg:mt-0">@{product.author}</p>
     </div>
