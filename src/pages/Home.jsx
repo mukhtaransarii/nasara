@@ -5,7 +5,6 @@ import { useProducts } from "../API/ProductContext.jsx";
 import ProductView from "./ProductView.jsx";
 import SearchProduct from '../components/ui/SearchProduct.jsx'
 import { useLocation } from "react-router-dom";
-import AdComponent from '../components/AdComponent.jsx'
 import { Helmet } from "react-helmet";
 
 export default function Home() {
@@ -65,9 +64,6 @@ export default function Home() {
               <CategoryFilter categories={categories} activeCategory={activeCategory} onFilter={handleFilter} />
             )}
           </div>
-          
-         {/* AdComponent from googleAds */}
-         <AdComponent />
         </div>
         
         
