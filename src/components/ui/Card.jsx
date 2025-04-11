@@ -46,7 +46,7 @@ export default function Card({ product, onSelectProduct }) {
       <p className="text-gray-500 text-xs">{product.quantity || 500} {product.unit || "gm"}</p>
 
       <div className="flex justify-between items-center mt-2">  
-        <span className="text-xl font-bold text-green-600">₹{product.price}</span>
+        <span className="font-bold text-green-600">₹{product.price}</span>
         <AddToCartButton product={product} />
       </div>
       <div className="text-sm space-x-1">
