@@ -29,7 +29,7 @@ body{
   font-size: 16px;
 }
 
-/* Hide Scroll bar from Home.jsx Cetogories Div */
+/* Hide Scroll Bar from Home.jsx Cetogories Div */
 *::-webkit-scrollbar {
   display: none;
 }
