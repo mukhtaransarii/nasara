@@ -83,9 +83,12 @@ export default function Home() {
               </div>
             ))
             : filteredProducts.map((product, index) => (
-                <Card key={product._id} product={product} onSelectProduct={handleProductClick} />
+                <div key={product._id}>
+                  <Card product={product} onSelectProduct={handleProductClick} />
+                  {(index + 1) % 4 === 0 && <AdComponent />}
+               </div>
               ))}
-        </div>
+        </Card>
       </div>
 
       {/* Right Side: Product View (30%) - Only on Large Screens */}
@@ -96,7 +99,8 @@ export default function Home() {
           <p>Select a product to view</p>
         )}
       </div>
+     </div>
     </div>
-   </div>
+   </>
   );
 }
