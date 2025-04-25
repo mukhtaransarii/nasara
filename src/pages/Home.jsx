@@ -89,7 +89,7 @@ export default function Home() {
                 {/* Show an ad after every 4 products */}
                 {(index + 1) % 4 === 0 && (
                   <div className="product-card">
-                    <SquareAd />
+                    <AdComponent />
                   </div>
                 )}
               </Fragment>

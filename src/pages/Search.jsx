@@ -51,7 +51,7 @@ export default function Search() {
         <div className="mt-4 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
       
          <div className="m-4">
-           <SquareAd/>
+           <AdComponent/>
          </div>
         
           {searchedProducts.length === 0 ? (
