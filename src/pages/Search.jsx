@@ -4,7 +4,6 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"; // Import Heroi
 import { useProducts } from "../API/ProductContext.jsx";
 import Card from "../components/ui/Card.jsx";
 import ProductView from "./ProductView.jsx";
-import AdComponent from "../components/AdComponent.jsx";
 
 export default function Search() {
   const { products } = useProducts();
@@ -49,10 +48,6 @@ export default function Search() {
         {/* Search Results */}
         <p className="mx-4 text-lg py-3 font-bold">Search Result</p>
         <div className="mt-4 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
-      
-         <div className="m-4">
-           <AdComponent/>
-         </div>
         
           {searchedProducts.length === 0 ? (
             <p className="text-gray-500">No products found.</p>
