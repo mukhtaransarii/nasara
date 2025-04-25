@@ -59,9 +59,11 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm text-gray-500">
           Mukhtar Alam © 2025 NASARA. All rights reserved.
         </div>
+        
+        <div className="my-4">
+          <AdComponent/>
+        </div>
       </div>
-      
-      <AdComponent/>
     </footer>
   );
 };
