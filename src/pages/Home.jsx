@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import CategoryFilter from "../components/ui/CategoryFilter.jsx";
 import Card from "../components/ui/Card.jsx";
 import { useProducts } from "../API/ProductContext.jsx";
@@ -82,13 +82,12 @@ export default function Home() {
                 <div className="h-2 bg-gray-200 rounded w-1/3"></div>
               </div>
             ))
-          : filteredProducts.map((product, index) => (
-            <Card product={product} onSelectProduct={handleProductClick} />
-             {/* Show an ad after every 4 products */}
-             {(index + 1) % 4 === 0 && (
-                <AdComponent />
-             )}
-            ))}
+            : filteredProducts.map((product, index) => (
+                <Fragment key={product._id || index}>
+                  <Card product={product} onSelectProduct={handleProductClick} />
+                  {(index + 1) % 4 === 0 && <AdComponent />}
+               </Fragment>
+              ))}
         </div>
       </div>
 
