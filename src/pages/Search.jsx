@@ -50,7 +50,7 @@ export default function Search() {
         <p className="mx-4 text-lg py-3 font-bold">Search Result</p>
         <div className="mt-4 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
       
-         <div className"m-4">
+         <div className="m-4">
            <SquareAd/>
          </div>
         
