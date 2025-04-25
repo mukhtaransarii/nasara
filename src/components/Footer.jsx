@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import BrandLogo from './ui/BrandLogo.jsx'
+import AdComponent from './AdComponent.jsx'
 
 const Footer = () => {
   return (
@@ -59,6 +60,8 @@ const Footer = () => {
           Mukhtar Alam © 2025 NASARA. All rights reserved.
         </div>
       </div>
+      
+      <AdComponent/>
     </footer>
   );
 };
