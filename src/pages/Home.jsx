@@ -88,7 +88,7 @@ export default function Home() {
                   {(index + 1) % 4 === 0 && <AdComponent />}
                </div>
               ))}
-        </Card>
+        </div>
       </div>
 
       {/* Right Side: Product View (30%) - Only on Large Screens */}
@@ -100,7 +100,6 @@ export default function Home() {
         )}
       </div>
      </div>
-    </div>
    </>
   );
 }
