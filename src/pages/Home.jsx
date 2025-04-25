@@ -6,7 +6,7 @@ import ProductView from "./ProductView.jsx";
 import SearchProduct from '../components/ui/SearchProduct.jsx'
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { SquareAd } from "../components/AdComponent.jsx";
+import AdComponent from "../components/AdComponent.jsx";
 
 export default function Home() {
   const { products } = useProducts();

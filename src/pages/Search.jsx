@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"; // Import Heroi
 import { useProducts } from "../API/ProductContext.jsx";
 import Card from "../components/ui/Card.jsx";
 import ProductView from "./ProductView.jsx";
-import { SquareAd } from "../components/AdComponent.jsx";
+import AdComponent from "../components/AdComponent.jsx";
 
 export default function Search() {
   const { products } = useProducts();
