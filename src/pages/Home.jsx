@@ -83,10 +83,7 @@ export default function Home() {
               </div>
             ))
             : filteredProducts.map((product, index) => (
-                <div key={product._id}>
-                  <Card product={product} onSelectProduct={handleProductClick} />
-                  {(index + 1) % 4 === 0 && <AdComponent />}
-               </div>
+                <Card key={product._id} product={product} onSelectProduct={handleProductClick} />
               ))}
         </div>
       </div>
