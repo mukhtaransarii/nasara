@@ -87,7 +87,7 @@ export default function Home() {
               ))}
         </div>
         
-        <div className="my-4">
+        <div className="my-4 mx-auto">
          <GoogleAds/>
         </div>
       </div>
