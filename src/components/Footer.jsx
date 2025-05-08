@@ -3,7 +3,7 @@ import BrandLogo from './ui/BrandLogo.jsx'
 
 const Footer = () => {
   return (
-    <footer className="bg-[#fff] text-[#171717] w-full pt-6">
+    <footer className="bg-[#07070b] text-[#fff] w-full pt-6">
       <div className="w-full mx-auto px-4 pb-4">
         <div className="mb-6">
          <BrandLogo/>
@@ -39,7 +39,7 @@ const Footer = () => {
             <h2 className="text-lg font-semibold">Quick Links</h2>
             <ul className="mt-2 space-y-0">
               <li>
-                <a href="https://nasaraa-admin.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-red-100">
+                <a href="https://nasaraa-admin.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-blue-500">
                   Nasara Admin Panel
                 </a>
               </li>

@@ -38,7 +38,7 @@ export default function Card({ product, onSelectProduct }) {
       {/* Large Screens: Update ProductView without redirecting */}
       <div className="hidden lg:block" onClick={() => onSelectProduct(product)}>
         {Image}
-        <h3 className="truncate font-medium mt-2 lg:text-xs">
+        <h3 className="truncate font-medium mt-2 text-lg">
           {product.title}
         </h3>
       </div>
@@ -49,9 +49,9 @@ export default function Card({ product, onSelectProduct }) {
         <span className="font-bold text-green-600">₹{product.price}</span>
         <AddToCartButton product={product} />
       </div>
-      <div className="text-sm space-x-1">
+      <div className="text-xs space-x-1">
         <span className="line-through text-gray-500">₹{product.originalPrice}</span>
-        <span className="text-sm text-red-600 font-medium">({discountPercent}% OFF)</span>
+        <span className="text-red-600 font-medium">({discountPercent}% OFF)</span>
       </div>
         
 

@@ -7,6 +7,7 @@ import SearchProduct from '../components/ui/SearchProduct.jsx'
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import GoogleAds from '../components/GoogleAds.jsx'
+import Crousel from '../components/Crousel.jsx'
 
 export default function Home() {
   const { products } = useProducts();
@@ -36,6 +37,7 @@ export default function Home() {
    
   return (
    <>
+    {/*
     <Helmet>
       <title>Nasara - Create Your Online Store</title>
       <meta name="description" content="Nasara helps local store owners create and manage their online shops easily." />
@@ -47,6 +49,7 @@ export default function Home() {
       <link rel="canonical" href="https://nasaraa.vercel.app" />
       <link rel="icon" type="image/png" href="/img/nasara.png" />
     </Helmet>
+    */}
   
     <div className="flex">
       {/* Left Side: Product List (70%) */}
@@ -67,8 +70,13 @@ export default function Home() {
           </div>
         </div>
         
+        {/*
+        <div className="mt-28 mb-2 w-full h-[40vw] lg:h-[20vw] px-4">
+         <Crousel/>
+        </div>
+        */}
         
-        <div className=" mt-32 px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
+        <div className="px-1 grid grid-cols-2 gap-1 lg:grid-cols-4">
           {products.length === 0
           ? [...Array(8)].map((_, i) => (
               <div key={i} className="p-2 space-y-2 animate-pulse">
@@ -85,10 +93,6 @@ export default function Home() {
             : filteredProducts.map((product, index) => (
                 <Card key={product._id} product={product} onSelectProduct={handleProductClick} />
               ))}
-        </div>
-        
-        <div className="my-4 flex justify-center">
-         <GoogleAds/>
         </div>
       </div>
 

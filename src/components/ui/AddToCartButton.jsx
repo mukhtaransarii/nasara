@@ -21,7 +21,7 @@ export default function AddToCartButton({ product }) {
 
   return (
     <button 
-      className={`px-4 py-2 rounded-md font-medium text-sm whitespace-nowrap lg:text-[10px] lg:px-[4px] lg:py-[1px] ${
+      className={`px-4 py-2 rounded-md font-medium text-sm whitespace-nowrap lg:text-[10px] lg:px-[8px] lg:py-[4px] ${
         isInCart ? "bg-gray-500 text-white" : "bg-green-700 text-white"
       }`}
       onClick={handleClick}
