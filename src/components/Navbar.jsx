@@ -6,6 +6,7 @@ import HamburgerMenu from './ui/HamburgerMenu.jsx'
 import NavbarMenu from "./NavbarMenu.jsx";
 import BrandLogo from './ui/BrandLogo.jsx'
 
+  
 export default function Navbar() {
   const { cart } = useCart();
   const [isActive, setIsActive] = useState(false);
